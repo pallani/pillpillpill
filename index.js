@@ -9,8 +9,8 @@ app.use(require('body-parser').raw({type: '*/*'}))
 
 const moment = require('moment')
 
-let pills = process.env.NO_OF_PILLS
-let tolerance = process.env.TOLERANCE
+let pills = parseInt(process.env.NO_OF_PILLS)
+let tolerance = parseInt(process.env.TOLERANCE)
 let current = null
 
 let lastUpdate = moment()
@@ -43,7 +43,7 @@ router.get('/usage', async (request, response) => {
 })
 
 router.get('/reset', async (request, response) => {
-  pills = process.env.NO_OF_PILLS
+  pills = parseInt(process.env.NO_OF_PILLS)
   current = null
   response.status(200).json({ message: 'ok' })
 })
