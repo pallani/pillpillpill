@@ -20,7 +20,7 @@ let lastConsumed = moment()
 app.use(express.static('public'))
 
 router.get('/report', async (request, response) => {
-  let value = request.query.value
+  let value = parseInt(request.query.value)
   lastUpdate = moment()
   console.log(value)
   if (current === null) {
