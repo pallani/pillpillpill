@@ -13,16 +13,18 @@ let pills = process.env.NO_OF_PILLS
 let tolerance = process.env.TOLERANCE
 let current = null
 
-let lastReading = moment()
+let lastUpdate = moment()
+let lastConsumed = moment()
 
 router.get('/report', async (request, response) => {
   let value = request.query.value
-  lastReading = moment()
+  lastUpdate = moment()
   console.log(value)
   if (current === null) {
     current = value
   } else if (value < current - tolerance) {
     console.log('value changed!')
+    lastConsumed = moment()
     current = value
     pills = pills - 1
   }
@@ -30,7 +32,11 @@ router.get('/report', async (request, response) => {
 })
 
 router.get('/usage', async (request, response) => {
-  response.status(200).json({ pills_left: pills, last_reading: lastReading.fromNow()})
+  response.status(200).json({
+    pills_left: pills,
+    last_update: lastUpdate.fromNow(),
+    last_consumed: lastConsumed.fromNow()
+  })
 })
 
 router.get('/reset', async (request, response) => {
