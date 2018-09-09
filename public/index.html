@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>First Name Basis</title>
+	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+	<link rel="stylesheet" href="main.css">
+	<link href='https://fonts.googleapis.com/css?family=Lato:200,300,400,700' rel='stylesheet' type='text/css'>
+	<link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">
+</head>
+
+<body>
+	<section class="bg-color-navbar navbar">
+		<div class="container">
+			<div class="row">
+				<div class="col">
+					<span class="app-icon">Lipitor</span>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="bg-color-white primary-info">
+		<div class="container">
+			<img id="3left" src="3-left.svg" style="display:none;"/>
+			<img id="2left" src="2-left.svg" style="display:none;"/>
+			<img id="1left" src="1-left.svg" style="display:none;"/>
+			<img id="0left" src="0-left.svg" style="display:none;"/>
+		</div>
+	</section>
+
+	<section class="bg-color-white primary-info last-update">
+		<div class="container">
+			<span class="app-icon">
+			<b>Last Updated:</b> <p id="lastupdated">{{last_updated}}</p>
+			<b>Last Consumed:</b> <p id="lastconsumed">{{last_consumed}}</p>
+			</span>
+		</div>
+	</section>
+
+<script src="main.js"></script>
+</body>
+
+</html>

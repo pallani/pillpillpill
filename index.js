@@ -16,6 +16,9 @@ let current = null
 let lastUpdate = moment()
 let lastConsumed = moment()
 
+// Express Static
+app.use(express.static('public'))
+
 router.get('/report', async (request, response) => {
   let value = request.query.value
   lastUpdate = moment()
